@@ -1,12 +1,41 @@
 {
-  "name": "vuethumbs",
+  "name": "vue-thumbs",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "cross-env NODE_ENV=development  LOG_LEVEL=debug webpack-dev-server --open",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=development webpack -p"
   },
-  "keywords": [],
-  "author": "L.R",
-  "license": "ISC"
+  "keywords": [
+    "vue",
+    "preview",
+    "thumbs",
+    "photoswipe"
+  ],
+  "author": "L.R [liuran.bj@gmail.com] (https://github.com/liuran)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuran/vue-thumbs.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liuran/vue-thumbs/issues"
+  },
+  "homepage": "https://github.com/liuran/vue-thumbs#readme",
+  "dependencies": {
+    "photoswipe": "^4.1.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.10",
+    "file-loader": "^1.1.11",
+    "sass-loader": "^6.0.6",
+    "url-loader": "^0.5.7"
+  }
 }
