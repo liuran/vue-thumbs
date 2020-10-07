@@ -3,10 +3,10 @@
     <div class="thumb-slide" :id="eid">
       <div class="inner-viewbox">
         <ul class="images">
-        <li v-for="item in c_items" :key="item.id">
+        <li v-for="item in c_items">
           <img :src="item.msrc" :o-src="item.src" :alt="item.alt" >
-          <i class="iconfont icon-delete-" @click="deleteItem(item.id)" />
-          <i class="iconfont icon-upload" @click="changeItem(item.id)"></i>
+          <i class="iconfont icon-delete-" @click="$emit('deleteItem', item)" />
+          <i class="iconfont icon-upload" @click="$emit('changeItem', item)" />
           </li>
          </ul>
       </div>
@@ -57,6 +57,7 @@ export default {
   },
 
   methods: {
+
     pageChanged (page){
       this.currentPage = page
     },
@@ -65,13 +66,6 @@ export default {
       this.pages = _.chunk(this.items, this.c_perPage)
     },
 
-    deleteItem(it) {
-      this.$emit('deleteItem', it)
-    },
-
-    changeItem(it) {
-      this.$emit('changeItem', it)
-    },
   },
 
   mounted() {
@@ -112,12 +106,16 @@ export default {
           font-size: 10px;
           margin:5px 2px;
           color:#ccc;
+
+          &:hover {
+            color :blue !important;
+          }
         }
 
         &:hover {
           cursor: pointer;
           i.iconfont {
-            color : blue;
+            color :#999;
           }
           }
       }

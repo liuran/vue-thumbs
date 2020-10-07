@@ -20,9 +20,7 @@ const VueThumbs = {
       methods: {
 
         initViewers(gallerySelector) {
-          const self = this
           const galleryElements = document.querySelectorAll(gallerySelector)
-
           this.gallery = []
 
           // for (let i = 0, l = galleryElements.length; i < l; i++) {
@@ -34,31 +32,28 @@ const VueThumbs = {
             hidden: function() {
               console.log('hidden called')
             },
-            view: function(eventi){
-              console.log(event)
+
+            view: function(event){
+              console.log('view called ', event.detail)
             }
           }))
         },
       },
 
       mounted() {
-        // this.initPhotoSwipeFromDOM('.inner-box')
         this.initViewers('.inner-viewbox')
       },
 
       updated() {
         if (this.gallery.length > 0){
           this.gallery.forEach(el => {
+            console.log(' updated called ')
             el.update()
           });
         }
       }
     })
   }
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VueThumbs)
 }
 
 export default VueThumbs
